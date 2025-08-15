@@ -10,6 +10,7 @@ coverage
 .vscode
 .idea
 dist
+.angular
 .angular/cache
 .DS_Store
 Thumbs.db

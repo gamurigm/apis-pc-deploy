@@ -59,8 +59,8 @@ services:
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
-      CATEGORIES_SERVICE_URL: http://categories-api:8089
-      CATEGORIES_API_URL: http://categories-api:8089/api/categorias
+      CATEGORIES_SERVICE_URL: http://categories-api:8080
+      CATEGORIES_API_URL: http://categories-api:8080/api/categorias
     networks:
       - app-network
     restart: on-failure
@@ -80,6 +80,9 @@ services:
       - products-api
     networks:
       - app-network
+    # NOTA: Si tu Angular está construido con URLs absolutas a localhost:8088 o localhost:8089, debes cambiarlas a:
+    # http://products-api:8080 y http://categories-api:8080 para funcionar en Docker.
+    # En producción, usa un proxy en Nginx para redirigir /api/* a los microservicios.
 
 volumes:
   mysql_data:
